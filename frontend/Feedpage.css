@@ -1,0 +1,29 @@
+body{
+    background: aliceblue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.allposts
+{
+   /* border:1px solid black;*/
+    margin: auto;
+    padding: 3px;
+    display: flex;
+    /*border-radius: 10px;*/
+    /*box*/
+    flex-direction: column;
+    gap: 15px;
+}
+.post{
+    width: 530px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    background-color: white;
+
+}
+.viewpost
+{
+    background: blueviolet;
+    color: white;
+    border-radius: 4px;
+}
+

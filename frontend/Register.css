@@ -1,0 +1,14 @@
+#loginbut
+{
+    color: white;
+    background-color: blueviolet;
+    width:100%;
+
+}
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background:aliceblue
+}
+.card-body{
+    box-shadow: 10px 10px 4px rgba(3, 83, 88, 0.3);
+}
