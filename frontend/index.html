@@ -1,21 +1,55 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Login</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
-      crossorigin="anonymous"
-    />
-    <link href="./Login.css" rel="stylesheet" />
-  </head>
-  <body
-    class="d-flex justify-content-center align-items-center"
-    style="height: 100vh"
-  >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="./Login.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #f3f4f6, #dee2e6);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: #0056b3 !important;
+    }
+
+    .card {
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      margin-top: 80px;
+      margin-bottom: 40px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      background-color: #000;
+      color: #fff;
+      padding: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-light bg-white shadow-sm px-4">
+    <div class="container-fluid justify-content-end">
+      <a class="navbar-brand ms-auto" href="#">MakeYourJournal</a>
+    </div>
+  </nav>
+
+  <!-- Login Card -->
+  <div class="d-flex justify-content-center align-items-center" style="min-height: calc(100vh - 160px);">
     <div class="card" style="width: 500px;">
       <div class="card-body text-center">
         <h3>Welcome</h3>
@@ -23,84 +57,70 @@
         <form id="loginForm">
           <div class="mb-3 text-start">
             <label for="emailInput" class="form-label">Email address</label>
-            <input
-              type="email"
-              class="form-control"
-              name="email"
-              id="emailInput"
-              placeholder="name@example.com"
-              required
-            />
+            <input type="email" class="form-control" name="email" id="emailInput" placeholder="name@example.com" required />
           </div>
           <div class="mb-3 text-start">
             <label for="passwordInput" class="form-label">Password</label>
-            <input
-              type="password"
-              name="password"
-              class="form-control"
-              id="passwordInput"
-              autocomplete="off"
-              required
-            />
+            <input type="password" name="password" class="form-control" id="passwordInput" autocomplete="off" required />
           </div>
           <p class="text-start">
             Don't have an account?
             <a href="./Register.html">Register here</a>
           </p>
-          <button type="submit" class="btn btn-primary" id="loginbut">
+          <button type="submit" class="btn btn-primary w-100" id="loginbut">
             Login Now
           </button>
         </form>
       </div>
     </div>
+  </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-      crossorigin="anonymous"
-    ></script>
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 MakeYourJournal. All rights reserved.
+  </footer>
 
-    <script>
-      const form = document.getElementById("loginForm");
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+  <!-- Login Script -->
+  <script>
+    const form = document.getElementById("loginForm");
 
-        const email = document.getElementById("emailInput").value.trim();
-        const password = document.getElementById("passwordInput").value.trim();
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-        if (!email || !password) {
-          alert("Please enter both email and password.");
-          return;
-        }
+      const email = document.getElementById("emailInput").value.trim();
+      const password = document.getElementById("passwordInput").value.trim();
 
-        try {
-          const response = await fetch("https://my-diary-g58l.onrender.com/userLogin", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email, password }),
-          });
+      if (!email || !password) {
+        alert("Please enter both email and password.");
+        return;
+      }
 
-          const result = await response.json();
+      try {
+        const response = await fetch("https://my-diary-g58l.onrender.com/userLogin", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        });
 
-          if (response.ok) {
-            // Save userID or token if returned by backend
-            if (result.userID) {
-              localStorage.setItem("userID", result.userID);
-            }
-            alert(result.message || "Login successful!");
-            //localStorage.setItem('userId', result.userId);
-            window.location.href = "./Feedpage.html";
-          } else {
-            alert(result.message || "Login failed. Please try again.");
+        const result = await response.json();
+
+        if (response.ok) {
+          if (result.userID) {
+            localStorage.setItem("userID", result.userID);
           }
-        } catch (error) {
-          console.error("Login error:", error);
-          alert("An error occurred. Please try again later.");
+          alert(result.message || "Login successful!");
+          window.location.href = "./Feedpage.html";
+        } else {
+          alert(result.message || "Login failed. Please try again.");
         }
-      });
-    </script>
-  </body>
+      } catch (error) {
+        console.error("Login error:", error);
+        alert("An error occurred. Please try again later.");
+      }
+    });
+  </script>
+</body>
 </html>
