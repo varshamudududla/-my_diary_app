@@ -1,5 +1,24 @@
 {
+  "name": "my_diary_app",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/varshamudududla/my_diary#readme",
+  "bugs": {
+    "url": "https://github.com/varshamudududla/my_diary/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/varshamudududla/my_diary.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "dotenv": "^16.5.0"
-  }
+  },
+  "devDependencies": {}
 }
