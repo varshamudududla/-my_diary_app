@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
-require('dotenv').config();
+require('dotenv').config({ path: __dirname + '/.env' });
 
 const app = express();
 
@@ -25,7 +25,10 @@ app.use((req, res, next) => {
 });
 
 // === MongoDB connection ===
-const mongoURI = "mongodb://localhost:27017/diary";
+const mongoURI = process.env.MONGO_URI;
+console.log("🔍 ENV MONGO_URI =", process.env.MONGO_URI);
+
+//const mongoURI = "mongodb://localhost:27017/diary";
 mongoose.connect(mongoURI)
   .then(() => console.log('MongoDB connected successfully!'))
   .catch(err => console.error('MongoDB connection error:', err));
