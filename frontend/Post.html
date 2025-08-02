@@ -31,25 +31,57 @@
       margin-bottom: 20px;
     }
 
-    footer {
+    
+     footer {
+      background: rgba(0,0,0,0.6);
       text-align: center;
+      padding: 1rem;
       font-size: 0.9rem;
-      margin-top: 40px;
-      color: #6c757d;
-      background-color: #000;   /* New: Black background */
-      color: #fff;              /* New: White text */
-       padding: 1rem 0;  
+      color: #fff;
     }
+     header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.6);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+    }
+     header .brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #4EA1D3;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 1rem;
+    }
+    body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-light bg-white shadow-sm px-4">
-    <div class="container-fluid justify-content-end">
-      <a class="navbar-brand ms-auto" href="#">MakeYourJournal</a>
-    </div>
-  </nav>
+ <header>
+    <div class="brand">MakeYourJournal</div>
+    <nav>
+      <a href="index.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
 
   <!-- Post Form -->
   <div class="form-container">

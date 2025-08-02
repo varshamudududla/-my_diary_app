@@ -29,24 +29,57 @@
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
     }
 
+   
     footer {
+      background: rgba(0,0,0,0.6);
       text-align: center;
+      padding: 1rem;
       font-size: 0.9rem;
-      background-color: #000;
       color: #fff;
-      padding: 1rem 0;
-      margin-top: 60px;
     }
+     header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.6);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+    }
+     header .brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #4EA1D3;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 1rem;
+    }
+    body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-light bg-white shadow-sm px-4">
-    <div class="container-fluid justify-content-end">
-      <a class="navbar-brand ms-auto" href="#">MakeYourJournal</a>
-    </div>
-  </nav>
+ <header>
+    <div class="brand">MakeYourJournal</div>
+    <nav>
+      <a href="index.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
 
   <!-- Post Details -->
   <div class="post-container">

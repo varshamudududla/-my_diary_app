@@ -35,24 +35,49 @@
       cursor: pointer;
       user-select: none;
     }
-
-    footer {
+ footer {
+      background: rgba(0,0,0,0.6);
       text-align: center;
+      padding: 1rem;
       font-size: 0.9rem;
-      margin-top: 40px;
-      color: #6c757d;
+      color: #fff;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.6);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+    }
+
+    header .brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #4EA1D3;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 1rem;
     }
   </style>
 </head>
 <body>
 
   <!-- Top Navbar -->
-  <nav class="navbar navbar-light bg-white shadow-sm px-4">
-    <div class="container-fluid justify-content-end">
-      <a class="navbar-brand ms-auto" href="#">MakeYourJournal</a>
-    </div>
-  </nav>
-
+  <header>
+    <div class="brand">MakeYourJournal</div>
+    <nav>
+      <a href="index.html">Login</a>
+      <a href="register.html">Register</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+<main>
   <!-- Registration Form -->
   <div class="form-container">
     <h3 class="text-center text-primary">Create Your Account</h3>
@@ -92,7 +117,7 @@
       <p class="text-center mt-3">Already have an account? <a href="./index.html">Login here</a></p>
     </form>
   </div>
-
+</main>
   <footer>
     &copy; 2025 MakeYourJournal. All rights reserved.
   </footer>

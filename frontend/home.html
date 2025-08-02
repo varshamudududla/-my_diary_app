@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MakeYourJournal</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.6);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+    }
+
+    header .brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #4EA1D3;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 1rem;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    main h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+
+    .dynamic-text {
+      font-size: 1.2rem;
+      opacity: 1;
+      transition: opacity 0.8s ease;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+
+    footer {
+      background: rgba(0,0,0,0.6);
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+    main h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #000; /* Black color */
+  text-shadow: none; /* Remove shadow so it's clean black */
+}
+
+.dynamic-text {
+  font-size: 1.2rem;
+  color: #000; /* Black color */
+  opacity: 1;
+  transition: opacity 0.8s ease;
+  text-shadow: none;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">MakeYourJournal</div>
+    <nav>
+      <a href="index.html">Login</a>
+      <a href="Register.html">Register</a>
+      <a href="About.html">About</About></a>
+    </nav>
+  </header>
+  <main>
+    <h1>Welcome to MakeYourJournal</h1>
+    <p class="dynamic-text" id="dynamicText">MakeYourJournal, your space to be you.</p>
+  </main>
+  <footer>
+    &copy; 2025 MakeYourJournal. All rights reserved.
+  </footer>
+
+  <script>
+    const phrases = [
+      "MakeYourJournal, your space to be you.",
+      "Capture your thoughts, anywhere.",
+      "Your story starts here."
+    ];
+    const textElement = document.getElementById("dynamicText");
+    let index = 0;
+
+    setInterval(() => {
+      textElement.style.opacity = 0;
+      setTimeout(() => {
+        index = (index + 1) % phrases.length;
+        textElement.textContent = phrases[index];
+        textElement.style.opacity = 1;
+      }, 800);
+    }, 4000);
+  </script>
+</body>
+</html>
