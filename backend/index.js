@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 
 // === MongoDB connection ===
 const mongoURI = process.env.MONGO_URI;
-console.log("🔍 ENV MONGO_URI =", process.env.MONGO_URI);
+console.log(" ENV MONGO_URI =", process.env.MONGO_URI);
 
 
 mongoose.connect(mongoURI)
@@ -62,7 +62,7 @@ app.get('/', (req, res) => {
   res.status(200).json({ message: "API is running" });
 });
 
-app.get('/ping', (req, res) => res.send('pong'));
+
 
 // Register
 app.post('/registerUser', async (req, res) => {
