@@ -16,12 +16,12 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// 🔍 Debug middleware to print body
+
 app.use((req, res, next) => {
-  console.log("🔥 Incoming Request");
-  console.log("➡️ Method:", req.method);
-  console.log("📍 Path:", req.path);
-  console.log("📝 Body:", req.body);
+  console.log(" Incoming Request");
+  console.log(" Method:", req.method);
+  console.log(" Path:", req.path);
+  console.log(" Body:", req.body);
   next();
 });
 
@@ -29,13 +29,13 @@ app.use((req, res, next) => {
 const mongoURI = process.env.MONGO_URI;
 console.log("🔍 ENV MONGO_URI =", process.env.MONGO_URI);
 
-//const mongoURI = "mongodb://localhost:27017/diary";
+
 mongoose.connect(mongoURI)
   .then(() => console.log('MongoDB connected successfully!'))
   .catch(err => console.error('MongoDB connection error:', err));
 
 mongoose.connection.once('open', () => {
-  console.log("✅ MongoDB is open and ready");
+  console.log("MongoDB is ready");
 });
 
 // === Schemas & Models ===
@@ -110,8 +110,8 @@ app.post('/userLogin', async (req, res) => {
 
 // Create Post
 app.post('/createPost', async (req, res) => {
-  console.log("📥 /createPost hit");
-  console.log("📝 req.body:", req.body);
+  console.log("createPost hit");
+  console.log(" req.body:", req.body);
 
   const { postTitle, postDescription, userID } = req.body;
 
@@ -174,7 +174,7 @@ app.post('/getPostByID', async (req, res) => {
   }
 });
 
-// 404 fallback (must be last)
+
 app.use((req, res) => {
   res.status(404).json({ message: `Route not found: ${req.originalUrl}` });
 });
@@ -182,5 +182,5 @@ app.use((req, res) => {
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at port ${PORT}`);
+  console.log(`Server running at port ${PORT}`);
 });
